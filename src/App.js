@@ -14,6 +14,7 @@ function App() {
   const [itemsPerPage, setItemsPerPage] = useState(100);
   const [sales, setSales] = useState(false);
   const [gender, setGender] = useState("all");
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     setLoading(true);
@@ -38,6 +39,12 @@ function App() {
       manipulateItems = manipulateItems.filter(
         (item) => item.sale_price < item.price
       );
+    if (searchTerm) {
+      const regexObj = new RegExp(searchTerm);
+      manipulateItems = manipulateItems.filter((item) =>
+        item.title.toLowerCase().match(regexObj)
+      );
+    }
     return manipulateItems;
   };
 
@@ -60,12 +67,19 @@ function App() {
     setCurrentPage(1);
   };
 
+  const searchHandler = (searchinput) => {
+    setSearchTerm(searchinput);
+    setCurrentPage(1);
+  };
+
   return (
     <div className="App">
       <Searchbar
         items={filteredItems()}
         salesHandler={salesHandler}
         genderHandler={genderHandler}
+        searchHandler={searchHandler}
+        searchTerm={searchTerm}
       />
       <div className="item-page-container">
         <Itemlist items={pagination()} loading={loading} />
