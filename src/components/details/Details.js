@@ -1,12 +1,38 @@
 import "./details.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function Details({ detailViewData, detailHandler }) {
+  const [pictures, setPictures] = useState([]);
+
+  // useEffect(() => {
+  // const fetchPictures = async () => {
+  //   // await detailViewData.image_link.map(picture => fetch(picture)).then((result)=>setPictures(result))
+  //   // await fetch(detailViewData.additional_image_link).then((result)=>setPictures(result))
+  //   if (detailViewData.additional_image_link > 0) {
+  //     setPictures(detailViewData.additional_image_link)
+  //   }
+  // }
+  // fetchPictures()
+  // },[])
+
+  useEffect(() => {
+    const createPicArray = () => {
+      let picArray = [];
+      picArray.push(detailViewData.image_link);
+      if (detailViewData.additional_image_link.split(", "))
+        picArray = picArray.concat(
+          detailViewData.additional_image_link.split(", ")
+        );
+      setPictures(picArray);
+    };
+    createPicArray();
+  }, []);
+
   return (
     <div className="details">
       <div
         className="details-picture"
-        style={{ backgroundImage: `url(${detailViewData.image_link})` }}
+        style={{ backgroundImage: `url(${pictures[2]})` }}
       >
         <div onClick={() => detailHandler()}>close</div>
       </div>

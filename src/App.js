@@ -96,10 +96,6 @@ function App() {
     setDetailView(!detailView);
   };
 
-  const detailHandler2 = (detailinput) => {
-    setDetailView(!detailView);
-  };
-
   return (
     <div className="App">
       {detailView ? (
