@@ -1,0 +1,10 @@
+.searchbar {
+  width: 1700px;
+  height: 40px;
+  padding: 10px;
+  background-color: red;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  border-radius: 1px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}

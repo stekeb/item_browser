@@ -1,0 +1,11 @@
+.pagenumber {
+  background-color: rgb(194, 193, 193);
+  height: 40px;
+  width: 40px;
+  border-radius: 1px;
+  margin: 3px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 20px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}

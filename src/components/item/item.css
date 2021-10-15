@@ -1,0 +1,20 @@
+.item {
+  height: 485px;
+  width: 300px;
+  margin: 10px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.item-picture {
+  height: 300px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.item-details {
+  width: 300px;
+  padding: 5px;
+  background-color: rgb(194, 193, 193);
+  height: 185px;
+  border-radius: 1px;
+  box-sizing: border-box;
+}
