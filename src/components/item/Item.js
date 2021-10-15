@@ -1,9 +1,9 @@
 import "./item.css";
 import React from "react";
 
-function Item({ item }) {
+function Item({ item, detailHandler }) {
   return (
-    <div className="item">
+    <div className="item" onClick={() => detailHandler(item)}>
       <div
         className="item-picture"
         style={{ backgroundImage: `url(${item.image_link})` }}

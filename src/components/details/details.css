@@ -1,0 +1,22 @@
+.details {
+  width: 700px;
+  height: 810px;
+  margin-top: 50px;
+  background-color: red;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.details-picture {
+  height: 500px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.details-details {
+  width: 700px;
+  padding: 5px;
+  background-color: rgb(194, 193, 193);
+  height: 185px;
+  border-radius: 1px;
+  box-sizing: border-box;
+}

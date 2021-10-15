@@ -6,6 +6,7 @@ import React, { useState, useEffect } from "react";
 import Itemlist from "./components/itemlist/Itemlist";
 import Pagination from "./components/pagination/Pagination";
 import Searchbar from "./components/searchbar/Searchbar";
+import Details from "./components/details/Details";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -15,6 +16,8 @@ function App() {
   const [sales, setSales] = useState(false);
   const [gender, setGender] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
+  const [detailView, setDetailView] = useState(false);
+  const [detailViewData, setDetailViewData] = useState([]);
 
   useEffect(() => {
     setLoading(true);
@@ -88,23 +91,45 @@ function App() {
     setCurrentPage(1);
   };
 
+  const detailHandler = (detailinput) => {
+    if (detailinput) setDetailViewData(detailinput);
+    setDetailView(!detailView);
+  };
+
+  const detailHandler2 = (detailinput) => {
+    setDetailView(!detailView);
+  };
+
   return (
     <div className="App">
-      <Searchbar
-        items={filteredItems()}
-        salesHandler={salesHandler}
-        genderHandler={genderHandler}
-        searchHandler={searchHandler}
-        searchTerm={searchTerm}
-      />
-      <div className="item-page-container">
-        <Itemlist items={pagination()} loading={loading} />
-        <Pagination
-          itemsPerPage={itemsPerPage}
-          totalItems={filteredItems().length}
-          paginateHandler={paginateHandler}
+      {detailView ? (
+        <Details
+          detailViewData={detailViewData}
+          detailHandler={detailHandler}
         />
-      </div>
+      ) : (
+        <div className="main">
+          <Searchbar
+            items={filteredItems()}
+            salesHandler={salesHandler}
+            genderHandler={genderHandler}
+            searchHandler={searchHandler}
+            searchTerm={searchTerm}
+          />
+          <div className="item-page-container">
+            <Itemlist
+              items={pagination()}
+              loading={loading}
+              detailHandler={detailHandler}
+            />
+            <Pagination
+              itemsPerPage={itemsPerPage}
+              totalItems={filteredItems().length}
+              paginateHandler={paginateHandler}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
