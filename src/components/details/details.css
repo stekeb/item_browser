@@ -20,3 +20,8 @@
   border-radius: 1px;
   box-sizing: border-box;
 }
+
+.details-additional-pictures {
+  display: flex;
+  justify-content: space-around;
+}

@@ -1,8 +1,10 @@
 import "./details.css";
 import React, { useEffect, useState } from "react";
+import Detailspicture from '../detailspicture/Detailspicture'
 
 function Details({ detailViewData, detailHandler }) {
   const [pictures, setPictures] = useState([]);
+  const [backgroundPic, setBackgroundPic] = useState("")
 
   // useEffect(() => {
   // const fetchPictures = async () => {
@@ -24,15 +26,25 @@ function Details({ detailViewData, detailHandler }) {
           detailViewData.additional_image_link.split(", ")
         );
       setPictures(picArray);
+      setBackgroundPic(picArray[0])
     };
     createPicArray();
   }, []);
 
+  const backPicSwitch = picInput => setBackgroundPic(picInput)
+
+
+  const picDisplay = pictures.map((item)=>(<Detailspicture key={item.index} item={item} backPicSwitch={backPicSwitch}/>
+
+  ) )
+
+
+ 
   return (
     <div className="details">
       <div
         className="details-picture"
-        style={{ backgroundImage: `url(${pictures[2]})` }}
+        style={{ backgroundImage: `url(${backgroundPic})` }}
       >
         <div onClick={() => detailHandler()}>close</div>
       </div>
@@ -42,6 +54,10 @@ function Details({ detailViewData, detailHandler }) {
         <h2>Gender: {detailViewData.gender}</h2>
         <h2>Price: {detailViewData.price}</h2>
         <h2>Sales Price: {detailViewData.sale_price}</h2>
+      </div>
+      <div className="details-additional-pictures">
+        {picDisplay}
+
       </div>
     </div>
   );
