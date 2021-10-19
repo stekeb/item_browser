@@ -1,17 +1,17 @@
-import React from 'react';
-import './detailspicture.css'
+import React from "react";
+import "./detailspicture.css";
 
-function Detailspicture({item, backPicSwitch}) {
-  console.log(item)
+function Detailspicture({ item, backPicSwitch }) {
   return (
-    
-      <div
-        className="detailspicture"
-        style={{ backgroundImage: `url(${item})` }} 
-        onClick={()=>backPicSwitch(item)}
-      >
-      </div> 
-  
+    <div>
+      <a href="javascript:;">
+        <div
+          className="detailspicture"
+          style={{ backgroundImage: `url(${item})` }}
+          onClick={() => backPicSwitch(item)}
+        ></div>
+      </a>
+    </div>
   );
 }
 

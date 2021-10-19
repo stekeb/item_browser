@@ -2,12 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #f1efed;
+  min-height: 100vh;
+  height: auto;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 
-.item-page-container {
-  width: 1600px;
-  height: 600px;
+.main {
+  display: flex;
+  flex-direction: column;
   padding: 10px;
+  align-items: center;
 }
 
 h2 {
@@ -16,4 +21,9 @@ h2 {
 
 h1 {
   font-size: 12px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

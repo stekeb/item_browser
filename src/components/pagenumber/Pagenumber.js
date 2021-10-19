@@ -5,7 +5,9 @@ import React from "react";
 function Pagenumber({ number, paginateHandler }) {
   return (
     <div className="pagenumber" onClick={() => paginateHandler(number)}>
-      <h2>{number}</h2>
+      <a href="javascript:;">
+        <h2>{number}</h2>
+      </a>
     </div>
   );
 }

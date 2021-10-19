@@ -1,13 +1,24 @@
 .searchbar {
   display: flex;
   flex-direction: row;
-
+  justify-content: end;
   width: 1700px;
   height: 40px;
   padding: 10px;
-  background-color: red;
+  background-color: #e64415;
   margin-top: 50px;
   margin-bottom: 30px;
   border-radius: 1px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.sales-container {
+  margin-bottom: 5px;
+}
+.filter-container {
+  margin-right: 10px;
+}
+
+.gender-dropdown-container label {
+  margin-right: 10px;
 }
