@@ -6,17 +6,6 @@ function Details({ detailViewData, detailHandler }) {
   const [pictures, setPictures] = useState([]);
   const [backgroundPic, setBackgroundPic] = useState("");
 
-  // useEffect(() => {
-  // const fetchPictures = async () => {
-  //   // await detailViewData.image_link.map(picture => fetch(picture)).then((result)=>setPictures(result))
-  //   // await fetch(detailViewData.additional_image_link).then((result)=>setPictures(result))
-  //   if (detailViewData.additional_image_link > 0) {
-  //     setPictures(detailViewData.additional_image_link)
-  //   }
-  // }
-  // fetchPictures()
-  // },[])
-
   useEffect(() => {
     const createPicArray = () => {
       let picArray = [];
